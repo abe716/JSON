@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <title>Personal Information</title>
+
+</head>
+
+<body>
+
+
+
+  <h1>Personal Information</h1>
+
+
+
+  <p>"Your personal information, all in one place."</p>
+
+
+
+  <div id="info">Loading...</div>
+
+
+
+  <script>
+
+    fetch("personalinfo.json")
+
+      .then(response => response.json())
+
+      .then(data => {
+
+        document.getElementById("info").innerHTML =
+
+          "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+
+      })
+
+      .catch(error => {
+
+        document.getElementById("info").innerHTML =
+
+          "Unable to load personal information.";
+
+      });
+
+  </script>
+
+
+
+</body>
+
+</html>
